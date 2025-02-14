@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love ❤️</title>
+    <style>
+        body {
+            background-color: #ffdde1;
+            text-align: center;
+            font-family: 'Cursive', sans-serif;
+            color: #ff3366;
+            overflow: hidden;
+        }
+        .container {
+            margin-top: 50px;
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .gift-box {
+            width: 150px;
+            height: 150px;
+            background: red;
+            border-radius: 10px;
+            display: inline-block;
+            cursor: pointer;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .heart-icon {
+            position: absolute;
+            font-size: 24px;
+            color: red;
+            animation: rise 4s linear infinite;
+        }
+        @keyframes rise {
+            from { transform: translateY(100vh); opacity: 1; }
+            to { transform: translateY(-10vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="floatingHearts"></div>
+    
+    <div id="step1" class="container active">
+        <h1>Happy Birthday Ammayi! ❤️</h1>
+        <p>Click to enter your surprise!</p>
+        <button onclick="nextStep('step1', 'step2')">Enter 🎉</button>
+    </div>
+    
+    <div id="step2" class="container">
+        <p>click on the gift box to see your surprise!</p>
+        <div class="gift-box" onclick="nextStep('step2', 'step3')"></div>
+    </div>
+    
+    <div id="step3" class="container">
+        <p>🎉 entha madam surprise aayo? aa special message koode onn vaayikkuvoo my pasandida aurat💖</p>
+        <button onclick="nextStep('step3', 'step4')">A special message for you 💌</button>
+    </div>
+    
+    <div id="step4" class="container">
+        <p>Happy birthday to uuu<Br>
+        happy birthday to uuu<br>
+        happy birthday dear lech<fontcolor=red>umma</fontcolor>💖<br>
+        happy birthday to u....<br>
+        dear lechumma, first of all wishing you a very happy birthday...neritt kandu gift tharaan kazhiyilla enn manasilaayathkondaanu njn ingane tharaam enn karuthiyathu<br>
+        ini adutha meet varumbozhe onn neritt kaandu samsarikkaan kazhiyathollu... hehe kaanunnath okay but samsarikkunath (just kidding) <BR> exam time okke aayi..nannaayi prepare cheyth nalla mark okke vaanganam..KEAM exam okke sett aayitt ezhuthi rank vaangikkanam<BR>
+        achanem ammem proud aakkanam.. praayapoorthi aayathkond thanne ini allu vum aayitt chumma vazhakkonnum undaakkaruth kurachokke pakkvatha venam(jk)<Br> aardem aduth adhikam choodaavaruth.. sleep schedule okke examinu sheshamenkilum sheriaakkanam<br>always prioritize studies and always be happy<br>
+        kaaranm you glow differently when you are actually happy.<br> enthenkilum nadathiyedukkaan patttiyillenkil swanthamaayitt kuttappedutharuth.. self love eppozhum undaayirikkanam<br>
+        pinne nammal thammil undaakunna adiyum vazhakkumokke nammal aayitt thanne ego illathe paranj theerkkanam..ath nammal angottumingottum palappozhum paranjittund ennalum paranjenn ollu..<br>
+        <b>if we fight.. we fix..we stay</b><br>
+        appo ithokke aanu enikk parayaanullath.. ee thaazhe kidakkunna <b>send a reply</b> il click cheythitt kaaryamonnumilla..verum prahasanam maathram<br>
+        parayaanullath chat il paranja mathi <br>actually ithinekkaal kurachoode creative aayitt cheyyaan nokkiyatha but cheettipoi..coding onnum adhikam vashamilla(hehe).. appo athra thanne..<br> 
+        
+        
+        
+        
+        
+        alla entho onn marannu... aah parayumpole njn initiative eduthillallo..<br>
+        <b>I LOVE YOU SO MUCH AMMAYIII.... I WILL ALWAYS KEEP LOVING YOU💖</b><BR> -yours lovingly <b>UNDATHAKKALI</b></p>
+        <br>
+        <button onclick="nextStep('step4', 'step5')">Send a reply 💌</button>
+    </div>
+    
+    <div id="step5" class="container">
+        <textarea placeholder="Write your message..."></textarea>
+        <br>
+        <button>Send</button>
+    </div>
+    
+    <script>
+        function nextStep(current, next) {
+            document.getElementById(current).classList.remove('active');
+            document.getElementById(next).classList.add('active');
+        }
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart-icon");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            document.getElementById("floatingHearts").appendChild(heart);
+            setTimeout(() => heart.remove(), 4000);
+        }
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
